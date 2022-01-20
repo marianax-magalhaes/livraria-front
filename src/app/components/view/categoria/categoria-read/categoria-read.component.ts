@@ -10,8 +10,10 @@ import { Categoria } from '../categorial.model';
 export class CategoriaReadComponent implements OnInit {
 
   constructor(private service: CategoriaService) { }
-
+  
+// dataSource:
   categorias: Categoria[] = [];
+
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'acoes'];
 
   ngOnInit(): void {

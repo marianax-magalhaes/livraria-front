@@ -10,6 +10,7 @@ import { Categoria } from './categorial.model';
 export class CategoriaService {
 
   baseUrl: String = environment.baseUrl;
+ 
 
   constructor(private http: HttpClient) { }
     findAll(): Observable<Categoria[]>{
