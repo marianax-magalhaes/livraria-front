@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import { CategoriaReadComponent } from './components/view/categoria/categoria-read/categoria-read.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { CategoriaCreateComponent } from './components/view/categoria/categoria-create/categoria-create.component';
 
 
 
@@ -29,6 +30,7 @@ import {MatButtonModule} from '@angular/material/button';
     NavComponent,
     HomeComponent,
     CategoriaReadComponent,
+    CategoriaCreateComponent,
   ],
   imports: [
     BrowserModule,

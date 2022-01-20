@@ -4,7 +4,7 @@
         <h1>Categorias</h1>
     </div>
 
-    <button mat-stroked-button class="mat-elevation-z8" color="primary">+ Categoria</button>
+    <button (click)="navegarParaCategoriaCreate()" mat-stroked-button class="mat-elevation-z8" color="primary">+ Categoria</button>
 
     <div class="table">
         <table mat-table [dataSource]="categorias" class="mat-elevation-z8 table">
