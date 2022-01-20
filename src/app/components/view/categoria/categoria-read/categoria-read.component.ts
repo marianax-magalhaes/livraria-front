@@ -14,7 +14,7 @@ export class CategoriaReadComponent implements OnInit {
 // dataSource:
   categorias: Categoria[] = [];
 
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
 
   ngOnInit(): void {
     this.findAll();
