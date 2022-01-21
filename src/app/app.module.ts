@@ -26,6 +26,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CategoriaDeleteComponent } from './components/view/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaUpdateComponent } from './components/view/categoria/categoria-update/categoria-update.component';
+import { LivroReadAllComponent } from './components/view/livro/livro-read-all/livro-read-all.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CategoriaUpdateComponent } from './components/view/categoria/categoria-
     CategoriaCreateComponent,
     CategoriaDeleteComponent,
     CategoriaUpdateComponent,
+    LivroReadAllComponent,
   ],
   imports: [
     BrowserModule,
