@@ -34,7 +34,13 @@ export class CategoriaDeleteComponent implements OnInit {
     this.service.delete(this.categoria.id!).subscribe((resposta) =>{
       this.router.navigate(["categorias"])
       this.service.mensagem("Categoria deletada com sucesso!");
+    }, err=>{
+      this.service.mensagem(err.error.error);
     })
-    }
+  }
+
+  cancel():void{
+    this.router.navigate(["categorias"])
+  }
 
 }
