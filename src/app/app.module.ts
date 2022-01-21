@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -51,7 +51,8 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
