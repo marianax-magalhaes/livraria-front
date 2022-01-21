@@ -19,7 +19,7 @@ import { CategoriaReadComponent } from './components/view/categoria/categoria-re
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CategoriaCreateComponent } from './components/view/categoria/categoria-create/categoria-create.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
@@ -60,7 +60,8 @@ import { LivroCreateComponent } from './components/view/livro/livro-create/livro
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
