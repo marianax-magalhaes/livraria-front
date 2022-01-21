@@ -4,7 +4,7 @@
         <h1>Livros</h1>
     </div>
 
-    <button mat-stroked-button class="mat-elevation-z8" color="primary">+ Livro</button>
+    <button (click)="criarLivro()" mat-stroked-button class="mat-elevation-z8" color="primary">+ Livro</button>
 
     <div class="table">
         <table mat-table class="mat-elevation-z8 table" [dataSource]="livros">
