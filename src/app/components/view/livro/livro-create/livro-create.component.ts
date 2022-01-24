@@ -20,9 +20,18 @@ export class LivroCreateComponent implements OnInit {
   getMessage(){
     if(this.titulo.invalid){
       return "O campo título deve conter entre 3 e 50 caracteres";
-    } if(this.nome_autor.invalid){
+  } 
+    return false;
+  }
+
+  getMessage1(){
+    if(this.nome_autor.invalid){
       return "O campo nome do autor deve conter entre 3 e 50 caracteres";
-    } if(this.texto.invalid){
+    } return false;
+  }
+
+  getMessage2(){
+    if(this.texto.invalid){
       return "O campo texto deve conter entre 10 e 2.000.000 caracteres";
     } return false;
   }

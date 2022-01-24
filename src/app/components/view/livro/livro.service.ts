@@ -17,4 +17,6 @@ export class LivroService {
     const url = this.baseUrl + "/livros?categoria=" + id_cat;
     return this.http.get<Livro[]>(url);
   }
+
+  
 }
