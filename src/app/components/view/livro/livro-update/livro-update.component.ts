@@ -5,12 +5,12 @@ import { Livro } from '../livro.model';
 import { LivroService } from '../livro.service';
 
 @Component({
-  selector: 'app-livro-create',
-  templateUrl: './livro-create.component.html',
-  styleUrls: ['./livro-create.component.scss']
+  selector: 'app-livro-update',
+  templateUrl: './livro-update.component.html',
+  styleUrls: ['./livro-update.component.scss']
 })
-export class LivroCreateComponent implements OnInit {
-
+export class LivroUpdateComponent implements OnInit {
+  
   titulo=new FormControl('', Validators.minLength(3));
   nome_autor=new FormControl('', Validators.minLength(10));
   texto=new FormControl('', Validators.minLength(10));
@@ -26,17 +26,26 @@ export class LivroCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id_cat=this.route.snapshot.paramMap.get('id_cat')!
+    this.id_cat=this.route.snapshot.paramMap.get('id_cat')!;
+    this.livro.id = this.route.snapshot.paramMap.get('id')!;
+    this.findById();
   }
 
-  create(): void{
-    this.service.create(this.livro, this.id_cat).subscribe((resposta)=>{
+  findById():void{
+    this.service.findById(this.livro.id).subscribe((resposta)=>{
+      this.livro=resposta;
+
+    })
+  }
+
+  update(): void{
+    this.service.update(this.livro).subscribe((resposta)=>{
       this.router.navigate(["categorias/"+this.id_cat+"/livros"]);
-      this.service.mensagem("Livro adicionado com sucesso!");
-      }, err => {
-        this.router.navigate(["categorias/"+this.id_cat+"/livros"]);
-        this.service.mensagem("Erro na adição de novo livro, tente mais tarde!");
-      });
+      this.service.mensagem("Livro atualizado com sucesso!")
+    }, err => {
+      this.router.navigate(["categorias/"+this.id_cat+"/livros"]);
+      this.service.mensagem("Falha ao atualizar livro, tente mais tarde!")
+    })
   }
 
   cancel(): void{
