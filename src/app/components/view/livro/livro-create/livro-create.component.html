@@ -3,24 +3,24 @@
 
     <mat-form-field class="form">
         <mat-label>Título</mat-label>
-        <input matInput [formControl]="titulo" required type="text" name="titulo" placeholder="ex: Romeu e Julieta" maxlength="50">
+        <input matInput [(ngModel)]="livro.titulo" [formControl]="titulo" required type="text" name="titulo" placeholder="ex: Romeu e Julieta" maxlength="50">
         <mat-error *ngIf="titulo.invalid">{{getMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form">
         <mat-label>Nome do Autor</mat-label>
-        <input matInput [formControl]="nome_autor" required type="text" name="nome_autor" placeholder="ex: William Shakespeare" maxlength="50">
+        <input matInput [(ngModel)]="livro.nome_autor" [formControl]="nome_autor" required type="text" name="nome_autor" placeholder="ex: William Shakespeare" maxlength="50">
         <mat-error *ngIf="nome_autor.invalid">{{getMessage1()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form">
         <mat-label>Texto</mat-label>
-        <input matInput [formControl]="texto" required type="text" name="texto" placeholder="ex: Lorem Ipsum" maxlength="2000000">
+        <input matInput [(ngModel)]="livro.texto" [formControl]="texto" required type="text" name="texto" placeholder="ex: Lorem Ipsum" maxlength="2000000">
         <mat-error *ngIf="texto.invalid">{{getMessage2()}}</mat-error>
     </mat-form-field>
 
     <div class="buttons">
-        <button [disabled]="getMessage() || getMessage1() || getMessage2()" mat-stroked-button class="mat-elevation-z8" color="primary">Criar</button>
+        <button (click)="create()" [disabled]="getMessage() || getMessage1() || getMessage2()" mat-stroked-button class="mat-elevation-z8" color="primary">Criar</button>
         <button mat-stroked-button class="mat-elevation-z8" color="warn">Cancelar</button>
     </div>
 </form>
