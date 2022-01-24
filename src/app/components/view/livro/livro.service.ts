@@ -31,7 +31,7 @@ export class LivroService {
 
   update(livro: Livro): Observable<Livro>{
     const url = this.baseUrl+"/livros/"+livro.id;
-    return this.http.patch<Livro>(url, livro)
+    return this.http.put<Livro>(url, livro)
   }
 
   delete(id: String): Observable<void>{
