@@ -31,6 +31,7 @@ import { LivroCreateComponent } from './components/view/livro/livro-create/livro
 import { LivroUpdateComponent } from './components/view/livro/livro-update/livro-update.component';
 import { LivroDeleteComponent } from './components/view/livro/livro-delete/livro-delete.component';
 import { LivroReadComponent } from './components/view/livro/livro-read/livro-read.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { LivroReadComponent } from './components/view/livro/livro-read/livro-rea
     LivroUpdateComponent,
     LivroDeleteComponent,
     LivroReadComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

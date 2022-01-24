@@ -1,0 +1,22 @@
+.content{
+    width: 90%;
+    margin: 1.4rem auto;
+}
+
+h1{
+    font-size: 1.5rem;
+    color: gray;
+    margin-bottom: 2rem;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+@media (max-width: 770px){
+    .form{
+        width: 100%;
+    }
+}

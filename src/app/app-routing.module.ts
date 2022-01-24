@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
 import { CategoriaCreateComponent } from './components/view/categoria/categoria-create/categoria-create.component';
 import { CategoriaDeleteComponent } from './components/view/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaReadComponent } from './components/view/categoria/categoria-read/categoria-read.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:'categorias/:id_cat/livros/create', component: LivroCreateComponent},
   {path:'categorias/:id_cat/livros/:id/update', component: LivroUpdateComponent},
   {path:'categorias/:id_cat/livros/:id/delete', component: LivroDeleteComponent},
-  {path:'categorias/:id_cat/livros/:id/read', component: LivroReadComponent}
+  {path:'categorias/:id_cat/livros/:id/read', component: LivroReadComponent},
+  {path:'login', component: LoginComponent},
 ];
 
 @NgModule({
