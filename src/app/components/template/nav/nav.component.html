@@ -3,15 +3,16 @@
     <mat-drawer mode="side" opened>
         <mat-nav-list>
 
-            <a routerLink=""><mat-list-item>
-                <mat-icon>home</mat-icon>
-                Home
-            </mat-list-item></a>
-
-            <a routerLink="/categorias"><mat-list-item>
-                <mat-icon>menu_book</mat-icon>
-                Categorias
-            </mat-list-item></a>
+            <div *ngIf="mostrarMenu">
+                <a routerLink=""><mat-list-item>
+                    <mat-icon>home</mat-icon>
+                    Home
+                </mat-list-item></a>
+                <a routerLink="/categorias"><mat-list-item>
+                    <mat-icon>menu_book</mat-icon>
+                    Categorias
+                </mat-list-item></a>
+            </div>
 
             <a routerLink="/login"><mat-list-item>
                 <mat-icon>login</mat-icon>
