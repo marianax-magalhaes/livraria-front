@@ -26,4 +26,9 @@ export class LoginComponent implements OnInit {
     this.authService.fazerLogin(this.usuario);
   }
 
+  // tentativa abandonada
+  login(){
+    this.authService.login(this.usuario);
+  }
+
 }
