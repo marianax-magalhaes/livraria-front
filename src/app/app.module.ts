@@ -33,7 +33,6 @@ import { LivroDeleteComponent } from './components/view/livro/livro-delete/livro
 import { LivroReadComponent } from './components/view/livro/livro-read/livro-read.component';
 import { LoginComponent } from './components/login/login.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
