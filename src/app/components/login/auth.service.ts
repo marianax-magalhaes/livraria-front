@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Usuario } from './usuario';
 
@@ -24,6 +25,12 @@ export class AuthService {
     })
   }
 
+  //com api e banco
+  loginUserFromRemote(user:Usuario):Observable<any>{
+    return this.http.post<any>(this.baseUrl+"/login", user)
+  }
+
+  //com hardcode no back
   fazerLogin(usuario:Usuario){
     if(usuario.nome==='usuario@email.com' && usuario.senha === '123456'){
       this.usuarioAutenticado = true;

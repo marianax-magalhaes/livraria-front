@@ -12,7 +12,9 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   usuario: Usuario = {
+    id_user:0,
     nome:'',
+    email:'',
     senha:''
   }
 
@@ -29,6 +31,16 @@ export class LoginComponent implements OnInit {
   // tentativa abandonada
   login(){
     this.authService.login(this.usuario);
+  }
+
+  loginUser(){
+    this.authService.loginUserFromRemote(this.usuario).subscribe(
+      (resposta)=>{
+        console.log(resposta);
+      }, (error)=>{
+        console.log("excecao")
+      }
+    );
   }
 
 }
