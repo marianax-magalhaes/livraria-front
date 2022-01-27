@@ -1,11 +1,18 @@
-<form class="content">
+<div class="content">
     <h1>Login</h1>
 
     <div class=loginform>
-        <form>
+        <form #loginform="ngForm">
             <div class="form-group">
               <label for="exampleInputEmail1">Email</label>
-              <input [(ngModel)]="usuario.email" type="email" class="form-control" id="email1" name="email" aria-describedby="emailHelp" placeholder="Ex: nome@email.com">
+
+              <input [(ngModel)]="usuario.email" type="email" class="form-control" id="email1" name="email" aria-describedby="emailHelp" placeholder="Ex: nome@email.com" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+              <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">O campo EMAIL é obrigatório</small> -->
+              <div *ngIf="email.errors && email.invalid && email.touched">
+                  <small class="text-danger" *ngIf="email.errors.required">O campo EMAIL é obrigatório.</small>
+                  <small class="text-danger" *ngIf="email.errors.pattern">Formato de EMAIL inválido.</small>
+              </div>
+
               <br>
             </div>
 
@@ -13,11 +20,13 @@
                 <label for="exampleInputPassword1">Senha</label>
 
                 <div class="senha">
-                    <input [(ngModel)]="usuario.senha" class="form-control input_senha" id="senha" name="senha" matInput [type]="hide ? 'password' : 'text'" placeholder="Senha deve conter entre 3 e 50 caracteres">
+                    <input [(ngModel)]="usuario.senha" class="form-control input_senha" id="senha" name="senha" matInput [type]="hide ? 'password' : 'text'" placeholder="Senha deve conter entre 3 e 50 caracteres" required #senha="ngModel" [class.is-invalid]="senha.invalid && senha.touched">
+
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="button_hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </div>
+                <small class="text-danger" [class.d-none]="senha.valid || senha.untouched">O campo SENHA é obrigatório</small>
                 <small class="text-white bg-danger">{{msg}}</small>
             </div>
             
@@ -26,9 +35,11 @@
               <label class="form-check-label" for="exampleCheck1">Manter logado</label>
             </div>
             <br>
-            <button (click)="loginUser()" type="submit" mat-stroked-button class="mat-elevation-z8" color="primary">Entrar</button>
-          </form>
+            <button (click)="loginUser()" type="submit" mat-stroked-button class="mat-elevation-z8" color="primary" [disabled]="loginform.form.invalid">Entrar</button>
+        </form>
+        <br>
+        <!-- <small (click)='gotoregistration()'>Novo Usuário? Registre-se aqui!</small> -->
+          <small class="register" [routerLink]="['/register']">Novo Usuário? Registre-se aqui!</small>
     </div>
-
-
-</form>
+    
+</div>
