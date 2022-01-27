@@ -6,7 +6,7 @@
 
     <button (click)="navegarParaCategoriaCreate()" mat-stroked-button class="mat-elevation-z8" color="primary">+ Categoria</button>
 
-    <div class="table">
+    <div>
         <table mat-table [dataSource]="categorias" class="mat-elevation-z8 table">
         
             <ng-container matColumnDef="id">
@@ -46,6 +46,7 @@
                 <a class="delete" routerLink="delete/{{element.id}}">
                   <mat-icon color="primary">delete</mat-icon>
                 </a>
+                
 
               </td>
             </ng-container>
