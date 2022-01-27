@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { Usuario } from './usuario';
+
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,9 @@ export class LoginComponent implements OnInit {
     senha:''
   }
 
-  constructor(private authService: AuthService) { }
+  msg: String = '';
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,11 +40,16 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.authService.loginUserFromRemote(this.usuario).subscribe(
       (resposta)=>{
-        console.log(resposta);
-      }, (error)=>{
-        console.log("excecao")
+        console.log("response recieved");
+        this.router.navigate([''])
+       
+      }, err =>{
+        console.log("exception occurs");
+        this.msg="Email e/ou senha inválido(s)."
       }
     );
   }
+
+
 
 }

@@ -26,8 +26,9 @@ export class AuthService {
   }
 
   //com api e banco
+  // nao consegui fazer com heroku
   loginUserFromRemote(user:Usuario):Observable<any>{
-    return this.http.post<any>(this.baseUrl+"/login", user)
+    return this.http.post<any>("http://localhost:8080/login", user);
   }
 
   //com hardcode no back

@@ -2,7 +2,7 @@
     <h1>Login</h1>
 
     <div class=loginform>
-        <form (ngSubmit)="loginUser">
+        <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Email</label>
               <input [(ngModel)]="usuario.email" type="email" class="form-control" id="email1" name="email" aria-describedby="emailHelp" placeholder="Ex: nome@email.com">
@@ -18,7 +18,7 @@
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </div>
-
+                <small class="text-white bg-danger">{{msg}}</small>
             </div>
             
             <div class="form-check">
@@ -26,7 +26,7 @@
               <label class="form-check-label" for="exampleCheck1">Manter logado</label>
             </div>
             <br>
-            <button type="submit" mat-stroked-button class="mat-elevation-z8" color="primary">Submit</button>
+            <button (click)="loginUser()" type="submit" mat-stroked-button class="mat-elevation-z8" color="primary">Entrar</button>
           </form>
     </div>
 

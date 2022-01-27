@@ -33,6 +33,7 @@ import { LivroDeleteComponent } from './components/view/livro/livro-delete/livro
 import { LivroReadComponent } from './components/view/livro/livro-read/livro-read.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginsucessComponent } from './components/loginsucess/loginsucess.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { RegisterComponent } from './components/register/register.component';
     LivroReadComponent,
     LoginComponent,
     RegisterComponent,
+    LoginsucessComponent,
   ],
   imports: [
     BrowserModule,
