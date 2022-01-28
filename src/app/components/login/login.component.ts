@@ -33,15 +33,16 @@ export class LoginComponent implements OnInit {
   }
 
   // tentativa abandonada
-  login(){
-    this.authService.login(this.usuario);
-  }
+  // login(){
+  //   this.authService.login(this.usuario);
+  // }
 
   loginUser(){
     this.authService.loginUserFromRemote(this.usuario).subscribe(
       (resposta)=>{
         console.log("response recieved");
         this.router.navigate([''])
+        this.authService.mensagem("Cadastro realizado com sucesso!")
        
       }, err =>{
         console.log("exception occurs");

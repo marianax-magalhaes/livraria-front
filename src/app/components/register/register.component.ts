@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../login/auth.service';
 import { Usuario } from '../login/usuario';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,9 +20,20 @@ export class RegisterComponent implements OnInit {
     senha:''
   }
 
-  constructor() { }
+  msg: String = '';
+
+  constructor(private service: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  registerUser(){
+    this.service.registerUserFromRemote(this.usuario).subscribe((resposta)=>{
+    console.log("recebido")
+      this.router.navigate(['/login'])
+  }, err => {
+    console.log("excecao")
+    this.msg=err.error;
+  })
+  };
 }

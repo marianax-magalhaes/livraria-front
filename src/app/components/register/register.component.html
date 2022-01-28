@@ -1,13 +1,15 @@
 <div class="content">
     <h1>Cadastre-se</h1>
 
+    <!-- <small [class.text-danger]="msg.status==500">Usuário com email {{usuario.email}} já existe!</small> -->
+
     <div class=loginform>
-        <form #loginform="ngForm">
+        <form #registerform="ngForm">
             <!------------------------ NOME ------------------------->
             <div class="form-group">
-              <label for="exampleInputNome">Nome</label>
+              <label for="inputNome">Nome</label>
 
-              <input [(ngModel)]="usuario.nome" type="email" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Nome completo" required #nome="ngModel" [class.is-invalid]="nome.invalid && nome.touched">
+              <input [(ngModel)]="usuario.nome" type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo" required #nome="ngModel" [class.is-invalid]="nome.invalid && nome.touched">
 
               <div *ngIf="nome.errors && nome.invalid && nome.touched">
                   <small class="text-danger" *ngIf="nome.errors.required">O campo NOME é obrigatório.</small>
@@ -18,22 +20,21 @@
 
             <!------------------------ EMAIL ------------------------->
             <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
+                <label for="inputEmail1">Email</label>
   
                 <input [(ngModel)]="usuario.email" type="email" class="form-control" id="email1" name="email" aria-describedby="emailHelp" placeholder="Ex: nome@email.com" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
   
-                <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">O campo EMAIL é obrigatório</small> -->
                 <div *ngIf="email.errors && email.invalid && email.touched">
                     <small class="text-danger" *ngIf="email.errors.required">O campo EMAIL é obrigatório.</small>
                     <small class="text-danger" *ngIf="email.errors.pattern">Formato de EMAIL inválido.</small>
                 </div>
                 
-              </div>
+            </div>
               <br>
 
             <!------------------------ SENHA ------------------------->
             <div class="form-group">
-                <label for="exampleInputPassword1">Senha</label>
+                <label for="inputPassword1">Senha</label>
 
                 <div class="senha">
                     <input [(ngModel)]="usuario.senha" class="form-control input_senha" id="senha" name="senha" matInput [type]="hide ? 'password' : 'text'" placeholder="Senha deve conter entre 3 e 50 caracteres" required #senha="ngModel" [class.is-invalid]="senha.invalid && senha.touched">
@@ -43,19 +44,36 @@
                     </button>
                 </div>
 
-                <small class="text-danger" [class.d-none]="senha.valid || senha.untouched">O campo SENHA é obrigatório</small>
+                <small class="text-danger" [class.d-none]="senha.valid || senha.untouched">O campo SENHA é obrigatório.</small>
+            </div>
+            <br>
+
+            <!------------------------ CONFIRMAÇAO DE SENHA ------------------------->
+            <div class="form-group">
+                <label for="inputPassword2">Confirme a Senha</label>
+
+                <div class="senha">
+                    <input (ngModel)="usuario.senha" class="form-control input_senha" name="senhac" id="senhac" matInput [type]="hide ? 'password' : 'text'" placeholder="Confirme a senha" required #senhac="ngModel" [class.is-invalid]="senhac.invalid && senhac.touched">
+
+
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="button_hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </div>
+            
+                <small class="text-danger" [class.d-none]="(senhac.value == senha.value) || senhac.untouched">Senha e confirmação de Senha devem ser os mesmos.</small>
                 <small class="text-white bg-danger"></small>
             </div>
             
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="remeber">
-              <label class="form-check-label" for="exampleCheck1">Manter logado</label>
-            </div>
             <br>
-            <button type="submit" mat-stroked-button class="mat-elevation-z8" color="primary" [disabled]="loginform.form.invalid">Cadastrar</button>
+            <button (click)="registerUser()" type="submit" mat-stroked-button class="mat-elevation-z8" color="primary" [disabled]="registerform.form.invalid">Cadastrar</button>
+
         </form>
         
     </div>
+
     <br>
+    <small class="register" [routerLink]="['/login']">Já é cadastrado? Faça login aqui!</small>
+
     
 </div>
