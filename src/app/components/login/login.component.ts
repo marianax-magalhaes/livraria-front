@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { Usuario } from './usuario';
@@ -13,6 +14,8 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
+  form: any;
+
   usuario: Usuario = {
     id_user:0,
     nome:'',
@@ -20,11 +23,19 @@ export class LoginComponent implements OnInit {
     senha:''
   }
 
+  usuarios: Usuario[]=[];
+
   msg: String = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    // this.form = new FormGroup({
+    //     id_user: new FormControl(),
+    //     nome: new FormControl(),
+    //     email: new FormControl(),
+    //     senha: new FormControl()
+    // })
   }
 
   // fazerlogin(){
@@ -43,6 +54,7 @@ export class LoginComponent implements OnInit {
         console.log("response recieved");
         this.router.navigate([''])
         this.authService.mostrarMenu();
+        this.authService.localStorage("login", resposta);
         
       }, err =>{
         console.log("exception occurs");

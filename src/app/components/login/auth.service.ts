@@ -17,6 +17,7 @@ export class AuthService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
+
   constructor(private router: Router, private http: HttpClient, private snack: MatSnackBar) { }
 
   // desisti desse
@@ -63,5 +64,13 @@ export class AuthService {
       verticalPosition: 'top',
       duration: 5000
     })
-}
+  } 
+
+  localStorage(key: string, user: Usuario){
+    localStorage.setItem(key, JSON.stringify(user));
+  }
+
+  
+
+  
 }
