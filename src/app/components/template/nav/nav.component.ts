@@ -8,7 +8,7 @@ import { AuthService } from '../../login/auth.service';
 })
 export class NavComponent implements OnInit {
  
- mostrarMenu: boolean = true;
+ mostrarMenu: boolean = false;
  
  constructor(private authService: AuthService) { }
  

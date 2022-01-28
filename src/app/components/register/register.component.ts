@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     this.service.registerUserFromRemote(this.usuario).subscribe((resposta)=>{
     console.log("recebido")
       this.router.navigate(['/login'])
+      this.service.mensagem("Cadastro realizado com sucesso!")
   }, err => {
     console.log("excecao")
     this.msg=err.error;

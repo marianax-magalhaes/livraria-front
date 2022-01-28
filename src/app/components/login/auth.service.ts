@@ -36,6 +36,11 @@ export class AuthService {
     return this.http.post<Usuario>("http://localhost:8080/cadastro", user);
   }
 
+  mostrarMenu(){
+    this.usuarioAutenticado = true;
+    this.mostrarMenuEmitter.emit(true);
+  }
+
   //com hardcode no back
   fazerLogin(usuario:Usuario){
     if(usuario.nome==='usuario@email.com' && usuario.senha === '123456'){

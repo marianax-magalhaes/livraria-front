@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  fazerlogin(){
-    console.log(this.usuario);
-    this.authService.fazerLogin(this.usuario);
-  }
+  // fazerlogin(){
+  //   console.log(this.usuario);
+  //   this.authService.fazerLogin(this.usuario);
+  // }
 
   // tentativa abandonada
   // login(){
@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
       (resposta)=>{
         console.log("response recieved");
         this.router.navigate([''])
-        this.authService.mensagem("Cadastro realizado com sucesso!")
-       
+        this.authService.mostrarMenu();
+        
       }, err =>{
         console.log("exception occurs");
         this.msg="Email e/ou senha inválido(s)."

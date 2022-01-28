@@ -16,15 +16,15 @@ import { LivroUpdateComponent } from './components/view/livro/livro-update/livro
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'categorias', component:CategoriaReadComponent},
-  {path:'categorias/create', component:CategoriaCreateComponent},
-  {path:'categorias/delete/:id', component: CategoriaDeleteComponent},
-  {path:'categorias/update/:id', component: CategoriaUpdateComponent},
-  {path:'categorias/:id_cat/livros', component: LivroReadAllComponent},
-  {path:'categorias/:id_cat/livros/create', component: LivroCreateComponent},
-  {path:'categorias/:id_cat/livros/:id/update', component: LivroUpdateComponent},
-  {path:'categorias/:id_cat/livros/:id/delete', component: LivroDeleteComponent},
-  {path:'categorias/:id_cat/livros/:id/read', component: LivroReadComponent},
+  {path:'categorias', component:CategoriaReadComponent, canActivate: [AuthGuard]},
+  {path:'categorias/create', component:CategoriaCreateComponent, canActivate: [AuthGuard]},
+  {path:'categorias/delete/:id', component: CategoriaDeleteComponent, canActivate: [AuthGuard]},
+  {path:'categorias/update/:id', component: CategoriaUpdateComponent, canActivate: [AuthGuard]},
+  {path:'categorias/:id_cat/livros', component: LivroReadAllComponent, canActivate: [AuthGuard]},
+  {path:'categorias/:id_cat/livros/create', component: LivroCreateComponent, canActivate: [AuthGuard]},
+  {path:'categorias/:id_cat/livros/:id/update', component: LivroUpdateComponent, canActivate: [AuthGuard]},
+  {path:'categorias/:id_cat/livros/:id/delete', component: LivroDeleteComponent, canActivate: [AuthGuard]},
+  {path:'categorias/:id_cat/livros/:id/read', component: LivroReadComponent, canActivate: [AuthGuard]},
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent}
 ];
