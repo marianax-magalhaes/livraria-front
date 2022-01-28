@@ -1,4 +1,4 @@
-form{
+.content{
     width: 90%;
     margin: 1.4rem auto;
 }
@@ -9,12 +9,37 @@ h1{
     margin-bottom: 2rem;
 }
 
-.form{ 
-    width: 100%;
+.loginform{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }
+
+.button_hide{
+    position:absolute;
+    bottom:30px;
+    right:60px;
+    width:10px;
+    height:10px;
+}
+
 .buttons{
-    justify-content: center;
+    justify-content:flex-start;
     display: flex;
     gap: 20px;
     margin-top: 20px;
+}
+.senha{
+    position:relative;
+    padding:0;
+    margin:0;
+}
+.register{
+    cursor:pointer;
+}
+
+@media (max-width: 770px){
+    .form{
+        width: 100%;
+    }
 }
