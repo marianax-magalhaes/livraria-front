@@ -68,7 +68,7 @@ export class AuthService {
   } 
 
   localStorage(key:string, user: Usuario){
-    // var data = this.storage.getItem("login");
+    // var data = this.storage.getItem(key!);
     // if(data){
     //   data = JSON.parse(data)
     // } else{
@@ -78,7 +78,7 @@ export class AuthService {
   }
 
   // getLocalStorage(key:string):any{
-  //   var data = JSON.parse(this.storage.getItem(key))
+  //   return JSON.parse(this.storage.getItem(key))
   //   }
   
 

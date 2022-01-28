@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
 
   private storage!: Storage;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+
+    // console.log(JSON.parse(this.storage.getItem("login")));
+  }
 
   ngOnInit(): void {
     // this.form = new FormGroup({
@@ -38,7 +41,8 @@ export class LoginComponent implements OnInit {
     //     email: new FormControl(),
     //     senha: new FormControl()
     // })
-    (localStorage.getItem("login"));
+    
+    
   }
 
   // fazerlogin(){
