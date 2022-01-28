@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
 
   msg: String = '';
 
+  private storage!: Storage;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
     //     email: new FormControl(),
     //     senha: new FormControl()
     // })
+    (localStorage.getItem("login"));
   }
 
   // fazerlogin(){
@@ -51,13 +54,11 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.authService.loginUserFromRemote(this.usuario).subscribe(
       (resposta)=>{
-        console.log("response recieved");
         this.router.navigate([''])
         this.authService.mostrarMenu();
         this.authService.localStorage("login", resposta);
         
       }, err =>{
-        console.log("exception occurs");
         this.msg="Email e/ou senha inválido(s)."
       }
     );

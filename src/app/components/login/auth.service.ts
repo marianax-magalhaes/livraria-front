@@ -17,6 +17,7 @@ export class AuthService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
+  storage!: Storage
 
   constructor(private router: Router, private http: HttpClient, private snack: MatSnackBar) { }
 
@@ -66,10 +67,19 @@ export class AuthService {
     })
   } 
 
-  localStorage(key: string, user: Usuario){
-    localStorage.setItem(key, JSON.stringify(user));
+  localStorage(key:string, user: Usuario){
+    // var data = this.storage.getItem("login");
+    // if(data){
+    //   data = JSON.parse(data)
+    // } else{
+      localStorage.setItem(key, JSON.stringify(user));
+    // }
+    
   }
 
+  // getLocalStorage(key:string):any{
+  //   var data = JSON.parse(this.storage.getItem(key))
+  //   }
   
 
   
