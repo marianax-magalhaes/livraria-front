@@ -12,6 +12,7 @@ import { Usuario } from './usuario';
 })
 export class LoginComponent implements OnInit {
 
+  // botao do olhinho da senha
   hide = true;
 
   form: any;
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     senha:''
   }
 
-  usuarios: Usuario[]=[];
+  // usuarios: Usuario[]=[];
 
   msg: String = '';
 
@@ -61,12 +62,14 @@ export class LoginComponent implements OnInit {
         this.router.navigate([''])
         this.authService.mostrarMenu();
         this.authService.localStorage("login", resposta);
+        this.authService.AdminLogado(resposta);
         
       }, err =>{
         this.msg="Email e/ou senha inválido(s)."
       }
     );
   }
+
 
   gotoregistration(){
     this.router.navigate(['/register'])

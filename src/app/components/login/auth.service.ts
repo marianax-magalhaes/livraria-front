@@ -17,6 +17,8 @@ export class AuthService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
+  mostrarBotaoEmitter = new EventEmitter<boolean>();
+
   storage!: Storage
 
   constructor(private router: Router, private http: HttpClient, private snack: MatSnackBar) { }
@@ -41,6 +43,10 @@ export class AuthService {
   mostrarMenu(){
     this.usuarioAutenticado = true;
     this.mostrarMenuEmitter.emit(true);
+  }
+
+  mostrarBotao(){
+    this.mostrarBotaoEmitter.emit(true);
   }
 
   //com hardcode no back
@@ -68,7 +74,8 @@ export class AuthService {
   } 
 
   localStorage(key:string, user: Usuario){
-    // var data = this.storage.getItem(key!);
+    // var localData = [];
+    // var data = window.localStorage.getItem(key!);
     // if(data){
     //   data = JSON.parse(data)
     // } else{
@@ -81,6 +88,10 @@ export class AuthService {
   //   return JSON.parse(this.storage.getItem(key))
   //   }
   
-
+  AdminLogado(user:Usuario){
+    if(user.nome==='adm@email.com' && user.senha === 'adm'){
+      this.mostrarBotao();
+    } 
+    }
   
 }

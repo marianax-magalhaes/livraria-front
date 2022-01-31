@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
  ngOnInit(): void {
    this.authService.mostrarMenuEmitter.subscribe(
      mostrar => this.mostrarMenu = mostrar
-   )
+   )  
  }
  
 }

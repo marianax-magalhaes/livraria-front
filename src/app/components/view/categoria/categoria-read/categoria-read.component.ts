@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/components/login/auth.service';
+import { Usuario } from 'src/app/components/login/usuario';
 import { CategoriaService } from '../categoria.service';
 import { Categoria } from '../categorial.model';
 
@@ -10,15 +12,28 @@ import { Categoria } from '../categorial.model';
 })
 export class CategoriaReadComponent implements OnInit {
 
-  constructor(private service: CategoriaService, private router: Router) { }
+  mostrarBotao: boolean = false;
+
+  constructor(private service: CategoriaService, private router: Router, private authService: AuthService) { }
   
 // dataSource:
   categorias: Categoria[] = [];
 
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
 
+  usuario: Usuario = {
+    id_user:0,
+    nome:'',
+    email:'',
+    senha:''
+  }
+
   ngOnInit(): void {
     this.findAll();
+
+    this.authService.mostrarBotaoEmitter.subscribe(
+      mostrar => {this.mostrarBotao = mostrar}
+    )
   }
 
   findAll(){
